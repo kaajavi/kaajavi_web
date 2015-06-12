@@ -1,0 +1,16 @@
+<h1>Mi Blog</h1>
+<h2>Que buena estética</h2>
+
+
+
+{% for post in posts %}
+<div style="background-color: grey">
+    <a style="color:blue; font-size:14px" href="#"> {{post.titulo}}</a>
+    <br>
+    <span>{{post.fecha}}</span><br>
+    <span>{{post.autor}}</span><br>
+    <p>
+        {{post.resumen}} <a href="{% url 'app_blog:vermipost' post.id %}">Leer más</a>
+    </p>
+</div>
+    {% endfor %}

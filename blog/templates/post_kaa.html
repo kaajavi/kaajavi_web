@@ -1,0 +1,14 @@
+<h1>Mi Blog</h1>
+<h2>Que buena estética</h2>
+
+<a href="{% url 'app_blog:home' %}">Atras</a>
+<div style="background-color: grey">
+    <a style="color:blue; font-size:14px" href="#"> {{post.titulo}}</a>
+    <br>
+    <span>{{post.fecha}}</span><br>
+    <span>{{post.autor}}</span><br>
+    <p>
+        {{post.contenido}} 
+    </p>
+
+</div>

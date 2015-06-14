@@ -1,16 +1,38 @@
-<h1>Mi Blog</h1>
-<h2>Que buena estética</h2>
+{% extends 'base.html' %}
 
+{% block content %}
 
+<div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        
+        {% for post in posts %}
+        <div class="post-preview">
+            <a href="{% url 'app_blog:vermipost' post.id %}">
+                <h2 class="post-title">
+                    {{post.titulo}}
+                </h2>
+                <h3 class="post-subtitle">
+                    {{post.resumen}}
+                </h3>
+            </a>
+            <p class="post-meta">Posteado por {{post.autor}}</p>
+        </div>
+        <hr>
+        {% endfor %}
 
-{% for post in posts %}
-<div style="background-color: grey">
-    <a style="color:blue; font-size:14px" href="#"> {{post.titulo}}</a>
-    <br>
-    <span>{{post.fecha}}</span><br>
-    <span>{{post.autor}}</span><br>
-    <p>
-        {{post.resumen}} <a href="{% url 'app_blog:vermipost' post.id %}">Leer más</a>
-    </p>
+        <!-- Pager -->
+        <ul class="pager">
+            <li class="next">
+                <a href="#">Post anteriores &rarr;</a>
+            </li>
+        </ul>
+    </div>
 </div>
-    {% endfor %}
+
+{% endblock %}
+
+
+
+
+
+

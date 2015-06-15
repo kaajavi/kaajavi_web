@@ -4,18 +4,15 @@ from blog.models import Entrada
 # Create your views here.
 def home(request):
     context = RequestContext(request)
-    mandar="Son unos salames"
-    numeros = [23,45,67,86,43]
-    posts = Entrada.objects.all()
+    #posts = Entrada.objects.all()
+    posts = Entrada.objects.filter(published = True)
     return render_to_response('home.html', 
-                              {'algo':mandar,
-                              'num':numeros,
-                              'posts':posts},
+                              {'posts':posts},
                               context)
 
 def ver_post(request, id_post):
     context = RequestContext(request)
-    post = Entrada.objects.get(id=id_post)
+    mi_post = Entrada.objects.get(id=id_post)
     return render_to_response('post.html', 
-                              {'post':post},
+                              {'post':mi_post},
                               context)

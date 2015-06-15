@@ -15,6 +15,7 @@ class Entrada(models.Model):
     fecha = models.DateTimeField(u'Fecha del Post',auto_now_add=True)
     resumen= models.CharField(u'Resumen',max_length=512)
     contenido = models.TextField(u'Contenido')
+    published = models.BooleanField(u'Publicado?', default=True)
     autor = models.ForeignKey(User)
     categoria = models.ManyToManyField('Categoria')
     
@@ -25,6 +26,7 @@ class Entrada(models.Model):
 class Categoria(models.Model):
     nombre = models.CharField(u'Título de la Categoría', max_length=100)
     descripcion = models.CharField(u'Descripción de la Categoría', max_length=256)
+    
     
     def __str__(self):
         return self.nombre

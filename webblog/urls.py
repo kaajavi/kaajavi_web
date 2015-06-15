@@ -24,6 +24,7 @@ urlpatterns = [
     url(r'^', include('blog.urls', namespace = "app_blog")),
     url(r'^admin/', include(admin.site.urls)),
     
+    
 ]
 
 if settings.DEBUG:

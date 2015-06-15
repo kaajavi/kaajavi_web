@@ -30,3 +30,11 @@ class Categoria(models.Model):
     
     def __str__(self):
         return self.nombre
+    
+    
+class Contacto(models.Model):
+    nombre = models.CharField(u'Nombre', max_length=100)
+    celu = models.CharField(u'Telefono', max_length=100)
+    mail = models.CharField(u'Mail', max_length=100)
+    mensaje = models.TextField(u'Mensaje')
+    fecha = models.DateTimeField(u'Fecha del Post',auto_now_add=True)
